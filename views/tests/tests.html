@@ -1,0 +1,14 @@
+<div class="container mt-5" ng-controller="QuizController">
+    <h1 class="mb-4">Quiz</h1>
+    <div class="container-fluid vh-100 d-flex flex-column">
+        <main class="row flex-grow-1 p-3">
+            <div class="col-md-12">
+                <div ng-repeat="test in tests" class="card mb-3">
+                    <div class="card-header">
+                        <a ng-click="navigateTo(($index + 1) + '/' + 'quiz' + '/' + 1  )"> Test {{$index+1}} </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

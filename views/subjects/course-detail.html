@@ -1,0 +1,31 @@
+<div class="container mt-5" ng-controller="CourseDetailController">
+    <div class="row">
+        <!-- Course Image or Thumbnail -->
+        <div class="col-md-8">
+            <img src="app/assets/images/logos/{{subject.Logo}}" class="img-fluid" alt="Hình ảnh khóa học">
+        </div>
+
+        <!-- Course Details -->
+        <div class="col-md-4" ng-controller="QuizController">
+            <h2>{{subject.Name}}</h2>
+            <p>Giảng viên: <strong>Tên giảng viên</strong></p>
+            <p>Thời lượng: <strong>10 giờ</strong></p>
+            <p>Mô tả khóa học: </p>
+            <p>Đây là khóa học dành cho những ai muốn học về...</p>
+            <button class="btn btn-primary">Ghi danh</button>
+            <a class="btn btn-success" ng-click="navigateTo('test')">Quiz</a>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>Nội dung khóa học</h3>
+            <ul>
+                <li>Bài 1: Giới thiệu về khóa học</li>
+                <li>Bài 2: Cơ bản về...</li>
+                <li>Bài 3: Nâng cao...</li>
+                <!-- Thêm nội dung các bài học tại đây -->
+            </ul>
+        </div>
+    </div>
+</div>

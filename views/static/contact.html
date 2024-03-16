@@ -1,0 +1,32 @@
+<div class="container my-5">
+    <h1 class="mb-4">Contact Us</h1>
+
+    <!-- Google Maps -->
+    <div id="map" class="mb-4">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207508.18778629564!2d-74.25986467003657!3d40.69766374873499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2508fa5b7f35b%3A0x10bffc3bf40e9b85!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1582116284817!5m2!1sen!2s"
+            allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Get in Touch</h2>
+            <form action="your-server-side-script.php" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message:</label>
+                    <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

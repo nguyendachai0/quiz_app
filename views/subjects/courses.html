@@ -1,0 +1,29 @@
+<div class="container mt-5" ng-controller="SubjectsController">
+
+    <h2 class="mb-4">Tất Cả Khóa Học</h2>
+    <div class="row">
+        <!-- Sử dụng ng-repeat để duyệt qua mỗi phần tử trong mảng subjects -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch" ng-repeat="subject in subjects">
+            <div class="card d-flex flex-column">
+                <img ng-src="app/assets/images/logos/{{subject.Logo}}" class="card-img-top" alt="{{subject.Name}}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{subject.Name}}</h5>
+                    <p class="card-text flex-grow-1">Mô tả cho khóa học: {{subject.Name}}.</p>
+                    <a href="http://127.0.0.1:5501/#/course/{{subject.Id}}" class="btn btn-primary mt-auto">Xem
+                        thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination  justify-content-center">
+            <li class="page-item"><a class="page-link" href="#">Trước</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+        </ul>
+    </nav>
+</div>
