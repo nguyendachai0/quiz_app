@@ -1,6 +1,6 @@
 quizApp.factory('QuizService', ['DataService','NavigationService', function(DataService, NavigateService) {
     var quizService = {};
-     quizService.path = '/db/Quizs/';
+     quizService.path = 'backend-api//db/Quizs/';
     quizService.getQuizQuestions = function(courseId) {
         return DataService.getData(quizService.path, courseId);     
     };

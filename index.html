@@ -20,11 +20,12 @@
 </head>
 
 <body ng-controller="NavigationController">
-    <header ng-include="'header.html'"></header>
+    <header ng-include="isAdmin ? 'views/admin/partials/header.html' : 'views/partials/header.html'"></header>
     <main ng-view></main>
 
     <script src="app/controllers/SubjectsController.js"></script>
     <script src="app/controllers/CourseDetailController.js"></script>
+    <script src="app/controllers/admin/AdminSubjectsController.js"></script>
     <script src="app/services/SubjectsService.js"></script>
     <script src="app/controllers/LoginController.js"></script>
     <script src="app/controllers/QuizController.js"></script>
@@ -35,6 +36,8 @@
     <script src="app/services/NavigationService.js"></script>
     <script src="app/services/QuizService.js"></script>
     <script src="app/services/DataService.js"></script>
+    <script src="app/services/admin/AdminSubjectsService.js"></script>
+    <script src="app/directive/fileModel.js"></script>
 </body>
 
 </html>

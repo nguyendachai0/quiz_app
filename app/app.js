@@ -42,6 +42,21 @@ quizApp.config([`$routeProvider`, function ($routeProvider) {
         .when('/q&a', {
             templateUrl: 'views/static/q&a.html'
         })
+        .when('/admin/q&a', {
+            templateUrl: 'views/admin/q&a.html'
+        })
+        .when('/admin/user', {
+            templateUrl: 'views/admin/users/index.html'
+        })
+        .when('/admin/course', {
+            templateUrl: 'views/admin/courses/index.html'
+        })
+        .when('/admin/course/edit/:id', {
+            templateUrl: 'views/admin/courses/index.html'
+        })
+        .when('/admin/test', {
+            templateUrl: 'views/admin/tests/index.html'
+        })
        
 }])
 

@@ -2,4 +2,6 @@ quizApp.controller('NavigationController', ['$scope', 'NavigationService', funct
     $scope.navigateTo = function(fragment) {
         NavigationService.navigateToFragment(fragment);
     };
+    $scope.isAdmin = NavigationService.isAdminRoute();
+    console.log($scope.isAdmin);
 }]);

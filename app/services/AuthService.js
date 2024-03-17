@@ -1,7 +1,7 @@
 quizApp
        .factory('AuthService', ['DataService','$location', '$q', '$rootScope',  'StorageService', function(DataService,$location, $q, $rootScope, StorageService) {
         var authService = {};
-        authService.path = 'db/';
+        authService.path = 'backend-api/db/';
         authService.fileName = 'Students';
         authService.getUsers = function() {
             return DataService.getData(authService.path, authService.fileName);

@@ -1,0 +1,53 @@
+<div class="container mt-5" ng-controller="AdminSubjectsController">
+    <h2 class="mb-4">Quản Lý Khóa Học</h2>
+
+    <!-- Form for Adding/Editing Courses -->
+    <div class="mb-5">
+        <h3>{{isEditing ? 'Chỉnh sửa' : 'Thêm'}} Khóa Học</h3>
+        <form ng-submit="addSubject()">
+            <div class="form-group">
+                <label for="subjectName">ID Khóa học</label>
+                <input type="text" class="form-control" id="subjectName" ng-model="newSubject.Id" required>
+            </div>
+            <div class="form-group">
+                <label for="subjectLogo">Tên Khóa học</label>
+                <input type="text" class="form-control" id="subjectLogo" ng-model="newSubject.Name" required>
+            </div>
+            <div class="form-group">
+                <label for="subjectLogoFile">Logo</label>
+                <input type="file" class="form-control" id="subjectLogoFile" file-model="newSubject.Logo">
+            </div>
+            <button type="submit" class="btn btn-primary">{{isEditing ? 'Cập nhật' : 'Thêm'}}</button>
+            <button type="button" class="btn btn-secondary" ng-click="resetForm()" ng-show="isEditing">Hủy bỏ</button>
+        </form>
+    </div>
+
+    <!-- Table for Displaying Courses -->
+    <div>
+        <h3>Danh Sách Khóa Học</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tên Khóa Học</th>
+                    <th>Logo</th>
+                    <th>Mô tả</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="subject in subjects">
+                    <td>{{$index + 1}}</td>
+                    <td>{{subject.Name}}</td>
+                    <td><img ng-src="app/assets/images/logos/{{subject.Logo}}" alt="{{subject.Name}}"
+                            style="width: 50px; height: auto;"></td>
+                    <td>{{subject.Description}}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" ng-click="navigateTo('edit/'+subject.Id)">Chỉnh sửa</button>
+                        <button class="btn btn-danger btn-sm" ng-click="deleteCourse(subject.Id)">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

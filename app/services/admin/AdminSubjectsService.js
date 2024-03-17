@@ -1,0 +1,28 @@
+angular.module('quizApp').service('AdminSubjectsService', ['$http', 'DataService', 'NavigationService', function($http, DataService, NavigationService) {
+
+    var adminSubject = {};
+    adminSubject.path = 'backend-api/db/';
+    adminSubject.fileName = 'Subjects';
+    adminSubject.getAllSubjects = function() {
+            return DataService.getData(adminSubject.path, adminSubject.fileName);
+        };      
+        adminSubject.addSubject = function(subject) {
+          return  $http.post('http://localhost:3000/api/subjects', subject).then(function(response){
+                console.log('Subjects:', response.data);
+            })
+            .catch(function(error) {
+                console.error('Error fetching subjects:', error);
+            });
+        };
+    
+
+    adminSubject.updateCourse = function(id, course) {
+        return $http.put(`/api/courses/${id}`, course);
+    };
+
+    adminSubject.deleteCourse = function(id) {
+        return $http.delete(`/api/courses/${id}`);
+    };
+    adminSubject.navigateToEdit = function 
+    return adminSubject;
+}]);
