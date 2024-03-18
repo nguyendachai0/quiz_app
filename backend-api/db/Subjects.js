@@ -100,17 +100,8 @@
     "Logo": "WEBU.jpg"
   },
   {
-    "Id": "newId",
-    "Name": "newcourse"
-  },
-  {
     "Id": "sdf",
     "Name": "sdf",
     "Logo": "1710662755540.jpeg"
-  },
-  {
-    "Id": "newId",
-    "Name": "new course",
-    "Logo": "1710662941668.jpeg"
   }
 ]

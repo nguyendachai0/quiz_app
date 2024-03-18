@@ -26,8 +26,10 @@ const writeFileData = (dataFilePath,data) => {
 app.post('/api/subjects', upload.single('Logo'), (req, res) => {
     const dataFilePath = path.join(__dirname, 'db', 'Subjects.js');
     const newSubject = req.body;
-    const logoFile = req.file; 
-    newSubject.Logo = logoFile.filename;
+    const logoFile = req.file;
+    if (logoFile) {
+        newSubject.Logo = logoFile.filename; // Only update the logo if a new file was provided
+    } 
     try {
       const data = readFileData(dataFilePath);
                 data.push(newSubject); 
@@ -38,40 +40,30 @@ app.post('/api/subjects', upload.single('Logo'), (req, res) => {
                 res.status(500).send('Error adding subject.');
             }
 })
-app.get('/api/subjects', (req, res) => {
-    const data = readFileData();
-    res.json(data);
-});
-// app.post('/api/subjects',  (req, res) => {
-//     console.log(req);
-//     const newSubject = req.body;
-//     const logoFile = req.file; 
-//     console.log(logoFile);
-//     console.log("Receivedt new subject:", newSubject);
-//     console.log("Received logo file:", logoFile);
-//     try {
-//         const data = readFileData();
-//         data.push(newSubject); 
-//         writeFileData(data);
-//         res.status(201).send('Subject added.');
-//     } catch (error) {
-//         console.error("Error adding subject:", error);
-//         res.status(500).send('Error adding subject.');
-//     }
-// });
-app.put('/api/subjects/:id', (req, res) => {
+app.put('/api/subjects/:id', upload.single('Logo'),(req, res) => {
     const { id } = req.params;
+    const dataFilePath = path.join(__dirname, 'db', 'Subjects.js');
     const updatedSubject = req.body;
-    let data = readFileData();
-    data = data.map(subject => subject.id === id ? updatedSubject : subject);
-    writeFileData(data);
-    res.send('Subject updated.');
+    const logoFile = req.file;
+    if (logoFile) {
+        updatedSubject.Logo = logoFile.filename; // Only update the logo if a new file was provided
+    } 
+    try {   
+      const data = readFileData(dataFilePath);
+      dataToEdit = data.map(subject => subject.Id === id ? updatedSubject : subject);
+      writeFileData(dataFilePath,dataToEdit);
+                res.status(201).send('Subject added.');
+            } catch (error) {
+                console.error("Error adding subject:", error);
+                res.status(500).send('Error adding subject.');
+            }
 });
 app.delete('/api/subjects/:id', (req, res) => {
     const { id } = req.params;
-    let data = readFileData();
-    data = data.filter(subject => subject.id !== id);
-    writeFileData(data);
+    const dataFilePath = path.join(__dirname, 'db', 'Subjects.js');
+    let data = readFileData(dataFilePath);
+    data = data.filter(subject => subject.Id !== id);
+    writeFileData(dataFilePath, data);
     res.send('Subject deleted.');
 });
 
